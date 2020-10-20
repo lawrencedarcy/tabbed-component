@@ -4,7 +4,7 @@ Reusability: This was the main focus of my approach to this component, which sup
 
 Accessibility: I used semantic HTML where possible to accomodate screen readers. In my CSS I retained a high-contrast text/background colour ratio (ie, I did nothing to change the default!), and added a mouseover highlight to the links. I also matched 'hover' styles with 'focus' styles to make them available on keyboard focus as well as mouseover.
 
-Browser support: By using vanilla JS and simple CSS styles there shouldn't be any issues here. The only concerns are with CSS Flexbox and ES6; caniuse.com thinks IE11 may be a little buggy with these (but in this simple component, probably fine!). 
+Browser support: I am using vanilla JS and simple CSS styles so there shouldn't be any issues here. The only concerns are with CSS Flexbox and ES6; caniuse.com thinks IE11 may be a little buggy with these (but in this simple component, probably fine!). 
 
 
 
