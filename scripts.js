@@ -1,12 +1,13 @@
 document.onreadystatechange = function () {
   if (document.readyState === 'interactive') {
+    
     function generateTabbedComponent(tabs) {
       const tabNames = Array.from(arguments);
       const defaultTab = tabNames[0];
 
       function createTabsHeaders() {
         tabNames.forEach((tabName, i) => {
-          let headerDiv = document.createElement('div');
+          let headerDiv = document.createElement('button');
           headerDiv.innerHTML = `${tabName.replace('-', ' ')}`;
           headerDiv.classList.add('tab');
           i === 0 && headerDiv.classList.add('current-tab');
@@ -22,14 +23,14 @@ document.onreadystatechange = function () {
         fetch(url + section + key)
           .then((response) => response.json())
           .then((data) => {
-            clearContent();
+            clearExistingContent();
             data.response.results.forEach((story, i) =>
               addListItem(story, i + 1)
             );
           });
       }
 
-      function clearContent() {
+      function clearExistingContent() {
         const contentList = document.getElementById('content-list');
         while (contentList.firstChild) {
           contentList.removeChild(contentList.lastChild);
@@ -37,7 +38,7 @@ document.onreadystatechange = function () {
       }
 
       function addListItem(story, i) {
-        const item = document.createElement('li');
+        const item = document.createElement('a');
         item.setAttribute('href', story.webUrl);
         item.innerHTML = `${i + '. ' + story.webTitle}`;
         item.classList.add('list-item');
